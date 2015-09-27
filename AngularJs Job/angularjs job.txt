@@ -1,0 +1,25 @@
+Hello,
+
+The task is as following : 
+
+Use asp.net MVC with EF and angularjs
+
+up to you to extend the project structure to your way of working. we promote well designed and clean code. 
+
+What I expect from you is to us this base to make a webproject with just a simple login page that use asp.net identity to check the credentials.
+ (use the login layout from the template /html/page_signin.html ) 
+
+After login it should open the invoice page where you can create a new invoice. 
+You should be able to change the quantity of each item change the product and price and dynamically add a new line. 
+Also the total price should be updated on each change. This should of course be done using angularjs 
+
+(If this is not clear have a look at the template you should use : /html/page_invoice.html) 
+
+There should also need to be a save button at the bottom that allow to save the invoice to the database. 
+
+use entity framework for the database with code first and a local mdf file.
+
+Can you do this project ? And do you have any questions about it ? 
+
+Kind regards,
+Thibault
