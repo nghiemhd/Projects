@@ -104,6 +104,5 @@ D:\__Git\Projects\AngularJs Tutorial\AngularMVCApp\AngularMVCApp\bin\Microsoft.O
 D:\__Git\Projects\AngularJs Tutorial\AngularMVCApp\AngularMVCApp\bin\Microsoft.Owin.Security.Google.xml
 D:\__Git\Projects\AngularJs Tutorial\AngularMVCApp\AngularMVCApp\bin\Microsoft.Owin.Security.Twitter.xml
 D:\__Git\Projects\AngularJs Tutorial\AngularMVCApp\AngularMVCApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\__Git\Projects\AngularJs Tutorial\AngularMVCApp\AngularMVCApp\obj\Debug\AngularMVCApp.csprojResolveAssemblyReference.cache
 D:\__Git\Projects\AngularJs Tutorial\AngularMVCApp\AngularMVCApp\obj\Debug\AngularMVCApp.dll
 D:\__Git\Projects\AngularJs Tutorial\AngularMVCApp\AngularMVCApp\obj\Debug\AngularMVCApp.pdb
