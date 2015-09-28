@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestProject.Core.Infrastructure;
+using TestProject.Logging;
 using TestProject.Service.ServiceContracts;
 
 namespace TestProject.Service
@@ -36,6 +37,7 @@ namespace TestProject.Service
 
             container.RegisterType<IDbContext, DataContext>(new InjectionConstructor(connectionString));
             container.RegisterType<IUnitOfWork, UnitOfWork<DataContext>>();
+            container.RegisterType<ILogger, Logger>(new InjectionConstructor("TestWeb"));
             container.RegisterType<IAuthenticationService, AuthenticationService>();
         }
     }

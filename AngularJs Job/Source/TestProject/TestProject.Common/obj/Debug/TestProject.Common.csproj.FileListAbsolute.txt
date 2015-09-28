@@ -2,3 +2,4 @@ D:\__Git\Projects\AngularJs Job\Source\TestProject\TestProject.Common\bin\Debug\
 D:\__Git\Projects\AngularJs Job\Source\TestProject\TestProject.Common\bin\Debug\TestProject.Common.pdb
 D:\__Git\Projects\AngularJs Job\Source\TestProject\TestProject.Common\obj\Debug\TestProject.Common.dll
 D:\__Git\Projects\AngularJs Job\Source\TestProject\TestProject.Common\obj\Debug\TestProject.Common.pdb
+D:\__Git\Projects\AngularJs Job\Source\TestProject\TestProject.Common\obj\Debug\TestProject.Common.csprojResolveAssemblyReference.cache

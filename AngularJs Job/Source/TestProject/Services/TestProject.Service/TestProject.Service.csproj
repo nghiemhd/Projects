@@ -65,6 +65,7 @@
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContracts\IAuthenticationService.cs" />
+    <Compile Include="Services\HandleErrorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
@@ -78,6 +79,10 @@
     <ProjectReference Include="..\..\Libraries\TestProject.Core\TestProject.Core.csproj">
       <Project>{a70fd3bd-6997-40d9-b9f8-98fd36c5295e}</Project>
       <Name>TestProject.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\TestProject.Logging\TestProject.Logging.csproj">
+      <Project>{0d069f7e-43b0-4e78-90d2-b290d63d5904}</Project>
+      <Name>TestProject.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Libraries\TestProject.Security\TestProject.Security.csproj">
       <Project>{e27303e5-23c8-4cb3-a473-37b228e43062}</Project>

@@ -2,3 +2,6 @@ D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Logging
 D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Logging\bin\Debug\TestProject.Logging.pdb
 D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Logging\obj\Debug\TestProject.Logging.dll
 D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Logging\obj\Debug\TestProject.Logging.pdb
+D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Logging\bin\Debug\log4net.dll
+D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Logging\bin\Debug\log4net.xml
+D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Logging\obj\Debug\TestProject.Logging.csprojResolveAssemblyReference.cache

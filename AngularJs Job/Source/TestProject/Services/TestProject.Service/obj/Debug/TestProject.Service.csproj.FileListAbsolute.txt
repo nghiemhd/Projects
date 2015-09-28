@@ -18,3 +18,7 @@ D:\__Git\Projects\AngularJs Job\Source\TestProject\Services\TestProject.Service\
 D:\__Git\Projects\AngularJs Job\Source\TestProject\Services\TestProject.Service\obj\Debug\TestProject.Service.pdb
 D:\__Git\Projects\AngularJs Job\Source\TestProject\Services\TestProject.Service\bin\Debug\TestProject.Security.dll
 D:\__Git\Projects\AngularJs Job\Source\TestProject\Services\TestProject.Service\bin\Debug\TestProject.Security.pdb
+D:\__Git\Projects\AngularJs Job\Source\TestProject\Services\TestProject.Service\bin\Debug\TestProject.Logging.dll
+D:\__Git\Projects\AngularJs Job\Source\TestProject\Services\TestProject.Service\bin\Debug\log4net.dll
+D:\__Git\Projects\AngularJs Job\Source\TestProject\Services\TestProject.Service\bin\Debug\TestProject.Logging.pdb
+D:\__Git\Projects\AngularJs Job\Source\TestProject\Services\TestProject.Service\bin\Debug\log4net.xml

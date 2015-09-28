@@ -39,13 +39,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Mvc, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.Mvc.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -105,6 +121,10 @@
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -123,32 +143,158 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AutoMapperConfig.cs" />
+    <Compile Include="Models\Account\LogOnModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\app.css" />
+    <Content Include="Content\app.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\font.css" />
+    <Content Include="Content\simple-line-icons.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Simple-Line-Icons.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\a0.jpg" />
+    <Content Include="img\a1.jpg" />
+    <Content Include="img\a10.jpg" />
+    <Content Include="img\a2.jpg" />
+    <Content Include="img\a3.jpg" />
+    <Content Include="img\a4.jpg" />
+    <Content Include="img\a5.jpg" />
+    <Content Include="img\a6.jpg" />
+    <Content Include="img\a7.jpg" />
+    <Content Include="img\a8.jpg" />
+    <Content Include="img\a9.jpg" />
+    <Content Include="img\b0.jpg" />
+    <Content Include="img\b1.jpg" />
+    <Content Include="img\b10.jpg" />
+    <Content Include="img\b11.jpg" />
+    <Content Include="img\b12.jpg" />
+    <Content Include="img\b13.jpg" />
+    <Content Include="img\b14.jpg" />
+    <Content Include="img\b15.jpg" />
+    <Content Include="img\b16.jpg" />
+    <Content Include="img\b17.jpg" />
+    <Content Include="img\b18.jpg" />
+    <Content Include="img\b19.jpg" />
+    <Content Include="img\b2.jpg" />
+    <Content Include="img\b20.jpg" />
+    <Content Include="img\b3.jpg" />
+    <Content Include="img\b4.jpg" />
+    <Content Include="img\b5.jpg" />
+    <Content Include="img\b6.jpg" />
+    <Content Include="img\b7.jpg" />
+    <Content Include="img\b8.jpg" />
+    <Content Include="img\b9.jpg" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\c0.jpg" />
+    <Content Include="img\c1.jpg" />
+    <Content Include="img\c2.jpg" />
+    <Content Include="img\c3.jpg" />
+    <Content Include="img\c4.jpg" />
+    <Content Include="img\c5.jpg" />
+    <Content Include="img\c6.jpg" />
+    <Content Include="img\c7.jpg" />
+    <Content Include="img\c8.jpg" />
+    <Content Include="img\c9.jpg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\p0.jpg" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\app.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\sourcesanspro\sourcesanspro-bold.woff" />
+    <Content Include="fonts\sourcesanspro\sourcesanspro-light.woff" />
+    <Content Include="fonts\sourcesanspro\sourcesanspro.woff" />
+    <Content Include="fonts\Simple-Line-Icons.eot" />
+    <Content Include="fonts\Simple-Line-Icons.ttf" />
+    <Content Include="fonts\Simple-Line-Icons.woff" />
+    <Content Include="Scripts\datatables\datatable.json" />
+    <Content Include="Scripts\footable\fonts\footable.eot" />
+    <Content Include="Scripts\footable\fonts\footable.ttf" />
+    <Content Include="Scripts\footable\fonts\footable.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\charts\easypiechart\jquery.easy-pie-chart.js" />
+    <Content Include="Scripts\charts\flot\jquery.flot.min.js" />
+    <Content Include="Scripts\charts\flot\jquery.flot.orderBars.js" />
+    <Content Include="Scripts\charts\flot\jquery.flot.pie.min.js" />
+    <Content Include="Scripts\charts\flot\jquery.flot.resize.js" />
+    <Content Include="Scripts\charts\flot\jquery.flot.spline.js" />
+    <Content Include="Scripts\charts\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Scripts\charts\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Scripts\chosen\chosen-sprite%402x.png" />
+    <Content Include="Scripts\chosen\chosen-sprite.png" />
+    <Content Include="Scripts\chosen\chosen.css" />
+    <Content Include="Scripts\chosen\chosen.jquery.min.js" />
+    <Content Include="Scripts\datatables\dataTables.bootstrap.css" />
+    <Content Include="Scripts\datatables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\datatables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\file\bootstrap-filestyle.min.js" />
+    <Content Include="Scripts\footable\fonts\footable.svg" />
+    <Content Include="Scripts\footable\footable.all.min.js" />
+    <Content Include="Scripts\footable\footable.core.css" />
+    <Content Include="Scripts\fullcalendar\fullcalendar.css" />
+    <Content Include="Scripts\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Scripts\fullcalendar\theme.css" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.ui.touch-punch.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jvectormap\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="Scripts\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Scripts\jvectormap\jquery-jvectormap.css" />
+    <Content Include="Scripts\jvectormap\jquery-jvectormap.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\nestable\jquery.nestable.js" />
+    <Content Include="Scripts\nestable\nestable.css" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2\select2-bootstrap.css" />
+    <Content Include="Scripts\select2\select2-spinner.gif" />
+    <Content Include="Scripts\select2\select2.css" />
+    <Content Include="Scripts\select2\select2.min.js" />
+    <Content Include="Scripts\select2\select2.png" />
+    <Content Include="Scripts\select2\select2x2.png" />
+    <Content Include="Scripts\slider\bootstrap-slider.js" />
+    <Content Include="Scripts\slider\slider.css" />
+    <Content Include="Scripts\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\sortable\jquery.sortable.js" />
+    <Content Include="Scripts\spinner\jquery.bootstrap-touchspin.css" />
+    <Content Include="Scripts\spinner\jquery.bootstrap-touchspin.min.js" />
+    <Content Include="Scripts\ui-jp.config.js" />
+    <Content Include="Scripts\ui-jp.js" />
+    <Content Include="Scripts\ui-load.js" />
+    <Content Include="Scripts\ui-nav.js" />
+    <Content Include="Scripts\ui-toggle.js" />
+    <Content Include="Scripts\wysiwyg\bootstrap-wysiwyg.js" />
+    <Content Include="Scripts\wysiwyg\jquery.hotkeys.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -165,10 +311,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\SignIn.cshtml" />
+    <Content Include="Views\Account\SignUp.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -176,6 +324,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Services\TestProject.Service\TestProject.Service.csproj">
+      <Project>{70681ca6-4b93-427b-a8f1-9304b7b2edbd}</Project>
+      <Name>TestProject.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -54,8 +54,6 @@
   <ItemGroup>
     <Compile Include="Entities\Invoice.cs" />
     <Compile Include="Entities\InvoiceDetail.cs" />
-    <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\OrderDetail.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Infrastructure\BaseEntity.cs" />
     <Compile Include="Infrastructure\DataContext.cs" />
