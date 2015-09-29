@@ -1,4 +1,4 @@
-﻿var SignupFormController = function ($scope, $location, RegisterFactory) {
+﻿var SignupFormController = function ($scope, RegisterFactory) {
     $scope.user = {
         email: '',
         password: '',
@@ -12,7 +12,7 @@
         var result = RegisterFactory($scope.user.email, $scope.user.password, $scope.user.confirmPassword);
         result.then(function (result) {
             if (result.success) {
-                $location.path('');
+                window.location.href = '/';
             }
             else {
                 $scope.authError = true;
@@ -22,4 +22,4 @@
     }
 }
 
-SignupFormController.$inject = ['$scope', '$location', 'RegisterFactory'];
+SignupFormController.$inject = ['$scope', 'RegisterFactory'];

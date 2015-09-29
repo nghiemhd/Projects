@@ -1,5 +1,0 @@
-D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Security\bin\Debug\TestProject.Security.dll
-D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Security\bin\Debug\TestProject.Security.pdb
-D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Security\obj\Debug\TestProject.Security.dll
-D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Security\obj\Debug\TestProject.Security.pdb
-D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Security\obj\Debug\TestProject.Security.csprojResolveAssemblyReference.cache

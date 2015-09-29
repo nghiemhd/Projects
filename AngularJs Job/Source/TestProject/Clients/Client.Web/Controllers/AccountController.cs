@@ -62,15 +62,17 @@ namespace Client.Web.Controllers
                     }
                     Response.Cookies.Add(faCookie);
 
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Invoice");
-                    }
+                    //if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                    //    && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    //{
+                    //    return Redirect(returnUrl);
+                    //}
+                    //else
+                    //{
+                    //    return RedirectToAction("Index", "Home");
+                    //}
+
+                    return Json("true");
 
                 }
                 //ModelState.AddModelError("", "Incorrect username and/or password");
@@ -91,6 +93,12 @@ namespace Client.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                var existedUser = authenticationService.GetUserByUsername(model.Email);
+                if (existedUser != null)
+                {
+                    return Json(new { errors = new List<string> { "This email address already exists." } });
+                }
+
                 var user = new User
                 {
                     Username = model.Email,
@@ -100,7 +108,7 @@ namespace Client.Web.Controllers
                 };
 
                 authenticationService.RegisterUser(user);
-                SignIn(new SignInViewModel { Email = user.Username, Password = user.Password }, string.Empty);
+                return SignIn(new SignInViewModel { Email = user.Username, Password = model.Password }, string.Empty);
             }
 
             var errors = ModelState.GetErrors();
@@ -113,7 +121,7 @@ namespace Client.Web.Controllers
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("SignIn", "Account");
         }
     }
 }

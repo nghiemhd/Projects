@@ -13,6 +13,9 @@
             if (!result.success) {
                 $scope.authError = true;
             }
+            else {
+                window.location.href = '/';
+            }
         });
     }
 }
