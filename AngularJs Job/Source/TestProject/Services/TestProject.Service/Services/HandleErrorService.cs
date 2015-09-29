@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TestProject.Logging;
 
-namespace TestProject.Service.Services
+namespace TestProject.Service
 {
     public abstract class HandleErrorService
     {

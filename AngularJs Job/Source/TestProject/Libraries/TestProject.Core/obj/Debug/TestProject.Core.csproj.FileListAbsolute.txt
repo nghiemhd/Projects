@@ -11,4 +11,3 @@ D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Core\ob
 D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Core\obj\Debug\TestProject.Core.pdb
 D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Core\obj\Debug\TestProject.Core.Migrations.Init.resources
 D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Core\obj\Debug\TestProject.Core.csproj.GenerateResource.Cache
-D:\__Git\Projects\AngularJs Job\Source\TestProject\Libraries\TestProject.Core\obj\Debug\TestProject.Core.csprojResolveAssemblyReference.cache

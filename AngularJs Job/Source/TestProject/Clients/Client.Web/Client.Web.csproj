@@ -152,7 +152,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AutoMapperConfig.cs" />
-    <Compile Include="Models\Account\LogOnModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Models\Account\SignInViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -215,7 +216,9 @@
     <Content Include="img\c9.jpg" />
     <Content Include="img\logo.png" />
     <Content Include="img\p0.jpg" />
+    <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularMVCApp.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\app.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -230,7 +233,11 @@
     <Content Include="fonts\Simple-Line-Icons.eot" />
     <Content Include="fonts\Simple-Line-Icons.ttf" />
     <Content Include="fonts\Simple-Line-Icons.woff" />
+    <Content Include="Scripts\Controllers\SignupFormController.js" />
+    <Content Include="Scripts\Controllers\SigninFormController.js" />
     <Content Include="Scripts\datatables\datatable.json" />
+    <Content Include="Scripts\Factories\RegisterFactory.js" />
+    <Content Include="Scripts\Factories\LoginFactory.js" />
     <Content Include="Scripts\footable\fonts\footable.eot" />
     <Content Include="Scripts\footable\fonts\footable.ttf" />
     <Content Include="Scripts\footable\fonts\footable.woff" />
@@ -326,9 +333,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\TestProject.Core\TestProject.Core.csproj">
+      <Project>{a70fd3bd-6997-40d9-b9f8-98fd36c5295e}</Project>
+      <Name>TestProject.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\TestProject.Service\TestProject.Service.csproj">
       <Project>{70681ca6-4b93-427b-a8f1-9304b7b2edbd}</Project>
       <Name>TestProject.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Client.Web.Framework\Client.Web.Framework.csproj">
+      <Project>{f5d2195c-a0bf-4485-b4e2-caa018613940}</Project>
+      <Name>Client.Web.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

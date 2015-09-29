@@ -5,19 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using TestProject.Core.Entities;
 using TestProject.Core.Infrastructure;
+using TestProject.Logging;
 using TestProject.Security;
 using TestProject.Service.ServiceContracts;
 
 namespace TestProject.Service
 {
-    public class AuthenticationService : IAuthenticationService
+    public class AuthenticationService : HandleErrorService, IAuthenticationService
     {
         private IUnitOfWork unitOfWork;
         private IRepository<User> userRepository;
+        private ILogger logger;
 
-        public AuthenticationService(IUnitOfWork unitOfWork)
+        public AuthenticationService(IUnitOfWork unitOfWork, ILogger logger)
+            : base(logger)
         {
             this.unitOfWork = unitOfWork;
+            this.logger = logger;
             userRepository = unitOfWork.GetRepository<User>();
         }
 
@@ -40,9 +44,12 @@ namespace TestProject.Service
 
         public void RegisterUser(User user)
         {
-            user.Password = Encryption.HashPassword(user.Password);
-            var newUser = userRepository.Insert(user);
-            unitOfWork.Commit();
+            Process(() =>
+            {
+                user.Password = Encryption.HashPassword(user.Password);
+                var newUser = userRepository.Insert(user);
+                unitOfWork.Commit();
+            });            
         }
 
         private string EncryptPassword(string password)

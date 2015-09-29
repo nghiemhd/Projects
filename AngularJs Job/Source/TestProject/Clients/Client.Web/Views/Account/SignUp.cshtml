@@ -4,7 +4,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="AngularMVCApp">
 <head>
     <meta charset="utf-8" />
     <title>Html version | Angulr</title>
@@ -32,7 +32,7 @@
                 </div>
                 <form name="form" class="form-validation">
                     <div class="text-danger wrapper text-center" ng-show="authError">
-
+                        <p ng-repeat="error in errors">{{error}}</p>
                     </div>
                     <div class="list-group list-group-sm">
                         <div class="list-group-item">
@@ -45,7 +45,7 @@
                             <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
                         </div>
                         <div class="list-group-item">
-                            <input type="password" placeholder="Confirm password" class="form-control no-border" ng-model="user.password" required>
+                            <input type="password" placeholder="Confirm password" class="form-control no-border" ng-model="user.confirmPassword" required>
                         </div>
                     </div>
                     <div class="checkbox m-b-md m-t-none">
@@ -53,10 +53,11 @@
                             <input type="checkbox" ng-model="agree" required><i></i> Agree the <a href>terms and policy</a>
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="signup()" ng-disabled='form.$invalid'>Sign up</button>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="signup()" >Sign up</button>
                     <div class="line line-dashed"></div>
                     <p class="text-center"><small>Already have an account?</small></p>
-                    <a ui-sref="access.signin" class="btn btn-lg btn-default btn-block">Sign in</a>
+                    @*<a ui-sref="access.signin" class="btn btn-lg btn-default btn-block">Sign in</a>*@
+                    @Html.ActionLink("Sign in", "SignIn", "Account", null, new { @class = "btn btn-lg btn-default btn-block" })
                 </form>
             </div>
             <div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
@@ -77,6 +78,7 @@
     <script src="~/scripts/ui-nav.js"></script>
     <script src="~/scripts/ui-toggle.js"></script>
 
+    @Scripts.Render("~/bundles/AngularMVCApp")
 </body>
 </html>
 

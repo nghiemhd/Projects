@@ -1,9 +1,8 @@
-﻿@model Client.Web.Models.LogOnModel
-@{
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="AngularMVCApp">
 <head>
     <meta charset="utf-8" />
     <title>Html version | Angulr</title>
@@ -29,9 +28,9 @@
                 <div class="wrapper text-center">
                     <strong>Sign in to get in touch</strong>
                 </div>
-                <form name="form" class="form-validation">
+                <form name="form" class="form-validation" ng-submit="login()">
                     <div class="text-danger wrapper text-center" ng-show="authError">
-
+                        Incorrect username and/or password
                     </div>
                     <div class="list-group list-group-sm">
                         <div class="list-group-item">
@@ -41,14 +40,15 @@
                             <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>Log in</button>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled='form.$invalid'>Log in</button>
                     <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>
                     <div class="line line-dashed"></div>
                     <p class="text-center"><small>Do not have an account?</small></p>
-                    <a ui-sref="access.signup" class="btn btn-lg btn-default btn-block">Create an account</a>
+                    @*<a ui-sref="access.signup" class="btn btn-lg btn-default btn-block">Create an account</a>*@
+                    @Html.ActionLink("Create an account", "SignUp", "Account", null, new { @class = "btn btn-lg btn-default btn-block" })
                 </form>
             </div>
-            <div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
+            <div class="text-center">
                 <p>
                     <small class="text-muted">Web app framework base on Bootstrap and AngularJS<br>&copy; 2014</small>
                 </p>
@@ -66,6 +66,7 @@
     <script src="~/scripts/ui-nav.js"></script>
     <script src="~/scripts/ui-toggle.js"></script>
 
+    @Scripts.Render("~/bundles/AngularMVCApp")
 </body>
 </html>
 

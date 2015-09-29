@@ -1,4 +1,5 @@
 ﻿using Client.Web.Models;
+using Client.Web.Framework.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -6,6 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+
+using TestProject.Core.Entities;
 using TestProject.Service.ServiceContracts;
 
 namespace Client.Web.Controllers
@@ -29,12 +32,11 @@ namespace Client.Web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult SignIn(LogOnModel model, string returnUrl)
+        public ActionResult SignIn(SignInViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                bool isValid = authenticationService.ValidateUser(model.Username, model.Password);
+                bool isValid = authenticationService.ValidateUser(model.Email, model.Password);
                 if (isValid)
                 {
                     int cookieExpiration;
@@ -46,7 +48,7 @@ namespace Client.Web.Controllers
 
                     var authTicket = new FormsAuthenticationTicket(
                         1,
-                        model.Username,
+                        model.Email,
                         DateTime.Now,
                         DateTime.Now.AddMinutes(cookieExpiration),
                         model.RememberMe,
@@ -67,19 +69,43 @@ namespace Client.Web.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Invoice");
                     }
+
                 }
-                ModelState.AddModelError("", "Incorrect username and/or password");
+                //ModelState.AddModelError("", "Incorrect username and/or password");
             }
 
-            return View(model);
+            return Json("false");
         }
 
         [AllowAnonymous]
         public ActionResult SignUp()
         {
             return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult SignUp(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new User
+                {
+                    Username = model.Email,
+                    Email = model.Email,
+                    Password = model.Password,
+                    IsActive = true
+                };
+
+                authenticationService.RegisterUser(user);
+                SignIn(new SignInViewModel { Email = user.Username, Password = user.Password }, string.Empty);
+            }
+
+            var errors = ModelState.GetErrors();
+
+            return Json(new { errors = errors });
         }
 
         [HttpPost]
