@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="~/content/simple-line-icons.css" type="text/css" />
     <link rel="stylesheet" href="~/content/font.css" type="text/css" />
     <link rel="stylesheet" href="~/content/app.css" type="text/css" />
-
+    
 </head>
 <body>
     <div class="app app-header-fixed  ">
@@ -60,7 +60,7 @@
                     @Html.ActionLink("Sign in", "SignIn", "Account", null, new { @class = "btn btn-lg btn-default btn-block" })
                 </form>
             </div>
-            <div class="text-center">
+            <div class="text-center" ng-include="'/tpl/blocks/page_footer.html'">
                 <p>
                     <small class="text-muted">Web app framework base on Bootstrap and AngularJS<br>&copy; 2014</small>
                 </p>
@@ -77,7 +77,6 @@
     <script src="~/scripts/ui-jp.js"></script>
     <script src="~/scripts/ui-nav.js"></script>
     <script src="~/scripts/ui-toggle.js"></script>
-
     @Scripts.Render("~/bundles/AngularMVCApp")
 </body>
 </html>

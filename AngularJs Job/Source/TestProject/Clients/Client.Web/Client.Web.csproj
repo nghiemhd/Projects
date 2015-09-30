@@ -161,6 +161,8 @@
     <Compile Include="Infrastructure\AutoMapperConfig.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\SignInViewModel.cs" />
+    <Compile Include="Models\Invoice\InvoiceDetailViewModel.cs" />
+    <Compile Include="Models\Invoice\InvoiceViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -240,9 +242,12 @@
     <Content Include="fonts\Simple-Line-Icons.eot" />
     <Content Include="fonts\Simple-Line-Icons.ttf" />
     <Content Include="fonts\Simple-Line-Icons.woff" />
+    <Content Include="Scripts\Controllers\InvoiceController.js" />
     <Content Include="Scripts\Controllers\SignupFormController.js" />
     <Content Include="Scripts\Controllers\SigninFormController.js" />
     <Content Include="Scripts\datatables\datatable.json" />
+    <Content Include="Scripts\date.format.js" />
+    <Content Include="Scripts\Factories\InvoiceFactory.js" />
     <Content Include="Scripts\Factories\RegisterFactory.js" />
     <Content Include="Scripts\Factories\LoginFactory.js" />
     <Content Include="Scripts\footable\fonts\footable.eot" />
@@ -310,6 +315,13 @@
     <Content Include="Scripts\wysiwyg\bootstrap-wysiwyg.js" />
     <Content Include="Scripts\wysiwyg\jquery.hotkeys.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="tpl\blocks\aside.html" />
+    <Content Include="tpl\blocks\aside.music.html" />
+    <Content Include="tpl\blocks\header.html" />
+    <Content Include="tpl\blocks\header.music.html" />
+    <Content Include="tpl\blocks\nav.html" />
+    <Content Include="tpl\blocks\page_footer.html" />
+    <Content Include="tpl\blocks\settings.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -344,6 +356,10 @@
     <ProjectReference Include="..\..\Libraries\TestProject.Core\TestProject.Core.csproj">
       <Project>{a70fd3bd-6997-40d9-b9f8-98fd36c5295e}</Project>
       <Name>TestProject.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\TestProject.Logging\TestProject.Logging.csproj">
+      <Project>{0d069f7e-43b0-4e78-90d2-b290d63d5904}</Project>
+      <Name>TestProject.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\TestProject.Service\TestProject.Service.csproj">
       <Project>{70681ca6-4b93-427b-a8f1-9304b7b2edbd}</Project>

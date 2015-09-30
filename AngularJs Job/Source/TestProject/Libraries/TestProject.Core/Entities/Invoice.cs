@@ -9,6 +9,13 @@ namespace TestProject.Core.Entities
 {
     public class Invoice : BaseEntity
     {
+        public Invoice()
+        {
+            InvoiceDetails = new HashSet<InvoiceDetail>();
+        }
+
+        public string InvoiceNo { get; set; }
+
         public DateTime InvoiceDate { get; set; }
 
         public decimal ShippingFee { get; set; }

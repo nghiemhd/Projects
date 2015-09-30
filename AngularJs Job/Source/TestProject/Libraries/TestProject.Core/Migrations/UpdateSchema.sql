@@ -15,6 +15,7 @@
 CREATE INDEX [IX_InvoiceId] ON [InvoiceDetail]([InvoiceId])
 CREATE TABLE [Invoice] (
     [Id] [int] NOT NULL IDENTITY,
+	[InvoiceNo] [varchar](10) NOT NULL,
     [InvoiceDate] [datetime] NOT NULL,
     [ShippingFee] [decimal](18, 2) NOT NULL DEFAULT 0,
     [VAT] [decimal](18, 2) NOT NULL DEFAULT 0,

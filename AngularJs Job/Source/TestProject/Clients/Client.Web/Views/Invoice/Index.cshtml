@@ -2,7 +2,7 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en" ng-app="AngularMVCApp">
+<html lang="en" ng-app="AngularMVCApp" ng-controller="InvoiceController">
 <head>
     <meta charset="utf-8" />
     <title>Html version | Angulr</title>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="~/content/simple-line-icons.css" type="text/css" />
     <link rel="stylesheet" href="~/content/font.css" type="text/css" />
     <link rel="stylesheet" href="~/content/app.css" type="text/css" />
-
+    
 </head>
 <body>
     <div class="app app-header-fixed  ">
@@ -184,7 +184,7 @@
                 </ul>
                 <!-- / link and dropdown -->
                 <!-- search form -->
-                <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" data-target=".navbar-collapse" role="search" ng-controller="TypeaheadDemoCtrl">
+                <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" data-target=".navbar-collapse" role="search">
                     <div class="form-group">
                         <div class="input-group">
                             <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Search projects...">
@@ -595,8 +595,8 @@
                                 </p>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <p class="h4">#9048392</p>
-                                <h5>29th Mar 2013</h5>
+                                <p class="h4">#{{invoice.InvoiceNo}}</p>
+                                <h5>{{invoice.InvoiceDate}}</h5>
                             </div>
                         </div>
                         <div class="well m-t bg-light lt">
@@ -637,11 +637,11 @@
                                     <th style="width: 60px">QTY</th>
                                     <th>DESCRIPTION</th>
                                     <th style="width: 140px">UNIT PRICE</th>
-                                    <th style="width: 90px">TOTAL</th>
+                                    <th style="width: 90px" class="text-right">TOTAL</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                @*<tr>
                                     <td>1</td>
                                     <td>iPhone 5 32GB White & Silver (GSM) Unlocked</td>
                                     <td>$749.00</td>
@@ -652,22 +652,28 @@
                                     <td>iPad mini with Wi-Fi 32GB - White & Silver</td>
                                     <td>$429.00</td>
                                     <td>$858.00</td>
+                                </tr>*@
+                                <tr ng-repeat="detail in invoice.InvoiceDetails">
+                                    <td><input style="width:50px;text-align:center" ng-model="detail.Quantity" /></td>
+                                    <td>{{detail.Description}}</td>
+                                    <td><input ng-model="detail.Price" /></td>
+                                    <td class="text-right">${{detail.Price * detail.Quantity | number:2}}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3" class="text-right"><strong>Subtotal</strong></td>
-                                    <td>$1607.00</td>
+                                    <td class="text-right">${{subtotal() | number:2}}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3" class="text-right no-border"><strong>Shipping</strong></td>
-                                    <td>$0.00</td>
+                                    <td class="text-right">${{invoice.ShippingFee | number:2}}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3" class="text-right no-border"><strong>VAT Included in Total</strong></td>
-                                    <td>$0.00</td>
+                                    <td class="text-right">${{invoice.VAT | number:2}}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="3" class="text-right no-border"><strong>Total</strong></td>
-                                    <td><strong>$1607.00</strong></td>
+                                    <td class="text-right"><strong>${{grandTotal() | number:2}}</strong></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -696,6 +702,7 @@
     <script src="~/scripts/ui-jp.js"></script>
     <script src="~/scripts/ui-nav.js"></script>
     <script src="~/scripts/ui-toggle.js"></script>
-
+    <script src="~/Scripts/date.format.js"></script>
+    @Scripts.Render("~/bundles/AngularMVCApp")
 </body>
 </html>

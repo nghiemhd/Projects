@@ -39,6 +39,7 @@ namespace TestProject.Service
             container.RegisterType<IUnitOfWork, UnitOfWork<DataContext>>();
             container.RegisterType<ILogger, Logger>(new InjectionConstructor("TestWeb"));
             container.RegisterType<IAuthenticationService, AuthenticationService>();
+            container.RegisterType<IInvoiceService, InvoiceService>();
         }
     }
 }

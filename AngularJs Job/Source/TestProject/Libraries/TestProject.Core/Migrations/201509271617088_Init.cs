@@ -32,6 +32,7 @@ namespace TestProject.Core.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        InvoiceNo = c.String(nullable: false, maxLength: 10, unicode: false),
                         InvoiceDate = c.DateTime(nullable: false),
                         ShippingFee = c.Decimal(nullable: false, precision: 18, scale: 2, defaultValue: 0),
                         VAT = c.Decimal(nullable: false, precision: 18, scale: 2, defaultValue: 0),

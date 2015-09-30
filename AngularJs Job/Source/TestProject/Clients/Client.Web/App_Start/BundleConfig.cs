@@ -27,7 +27,7 @@ namespace Client.Web
                 .IncludeDirectory("~/Scripts/Controllers", "*.js")
                 .IncludeDirectory("~/Scripts/Factories", "*.js")
                 .Include(
-                    "~/Scripts/angular.min.js",
+                    "~/Scripts/angular.js",
                     "~/Scripts/AngularMVCApp.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
