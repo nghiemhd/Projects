@@ -42,5 +42,44 @@ namespace TestProject.Service
             var details = invoiceDetailRepository.Query().Where(x => x.InvoiceId == invoiceId).ToList();
             return details;
         }
+
+        private void DeleteInvoiceDetails(IList<int> invoiceDetailIds)
+        {
+            var invoiceDetails = invoiceDetailRepository.Query().Where(x => invoiceDetailIds.Contains(x.Id)).ToList();
+            invoiceDetailRepository.RemoveRange(invoiceDetails);            
+        }
+
+        public void UpdateInvoiceDetails(IList<InvoiceDetail> invoiceDetails, IList<int> deleteIds)
+        {
+            Process(() =>
+            {
+                if (invoiceDetails != null && invoiceDetails.Count > 0)
+                {
+                    var ids = invoiceDetails.Select(x => x.Id);
+                    var invoicesInDb = invoiceDetailRepository.Query().Where(x => ids.Contains(x.Id)).ToList();
+                    var idsInDb = invoicesInDb.Select(x => x.Id);
+                    foreach (var invoice in invoicesInDb)
+                    {
+                        var item = invoiceDetails.Where(x => x.Id == invoice.Id).First();
+                        invoice.Description = item.Description;
+                        invoice.Quantity = item.Quantity;
+                        invoice.Price = item.Price;
+                    }
+
+                    var invoicesNotInDb = invoiceDetails.Where(x => !idsInDb.Contains(x.Id));
+                    foreach (var invoice in invoicesNotInDb)
+                    {
+                        invoiceDetailRepository.Insert(invoice);
+                    }
+                }
+
+                if (deleteIds != null && deleteIds.Count > 0)
+                {
+                    DeleteInvoiceDetails(deleteIds);
+                }
+
+                this.unitOfWork.Commit();
+            });            
+        }
     }
 }

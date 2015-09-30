@@ -14,6 +14,8 @@ namespace Client.Web.Infrastructure
         {
             Mapper.CreateMap<InvoiceDetail, InvoiceDetailViewModel>();
             Mapper.CreateMap<Invoice, InvoiceViewModel>();
+
+            Mapper.CreateMap<InvoiceDetailViewModel, InvoiceDetail>();
         }
     }
 }

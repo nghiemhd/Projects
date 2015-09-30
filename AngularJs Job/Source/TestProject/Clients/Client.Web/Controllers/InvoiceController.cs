@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestProject.Core.Entities;
 using TestProject.Logging.Extensions;
 using TestProject.Service.ServiceContracts;
 
@@ -38,6 +39,23 @@ namespace Client.Web.Controllers
             {
                 return Json(new { success = false, error = LogExtension.GetFinalInnerException(ex).Message }, JsonRequestBehavior.AllowGet);
             }            
+        }
+
+        [HttpPost]
+        public JsonResult UpdateInvoice(UpdateInvoiceViewModel model)
+        {
+            try
+            {
+                var invoiceDetails = Mapper.Map<List<InvoiceDetail>>(model.UpdatedInvoiceDetails);
+                var deleteIds = model.DeletedInvoiceDetails;
+                invoiceService.UpdateInvoiceDetails(invoiceDetails, deleteIds);
+
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, error = LogExtension.GetFinalInnerException(ex).Message });
+            }
         }
     }
 }

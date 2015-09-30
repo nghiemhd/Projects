@@ -14,5 +14,9 @@ namespace TestProject.Service.ServiceContracts
         Invoice GetFirstInvoice();
 
         List<InvoiceDetail> GetInvoiceDetails(int invoiceId);
+
+        //void DeleteInvoiceDetails(IList<int> invoiceDetailIds);
+
+        void UpdateInvoiceDetails(IList<InvoiceDetail> invoiceDetails, IList<int> deleteIds);
     }
 }

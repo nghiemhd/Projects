@@ -163,6 +163,7 @@
     <Compile Include="Models\Account\SignInViewModel.cs" />
     <Compile Include="Models\Invoice\InvoiceDetailViewModel.cs" />
     <Compile Include="Models\Invoice\InvoiceViewModel.cs" />
+    <Compile Include="Models\Invoice\UpdateInvoiceViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +175,8 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\font.css" />
     <Content Include="Content\simple-line-icons.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -223,6 +226,7 @@
     <Content Include="img\c7.jpg" />
     <Content Include="img\c8.jpg" />
     <Content Include="img\c9.jpg" />
+    <Content Include="img\loading.gif" />
     <Content Include="img\logo.png" />
     <Content Include="img\p0.jpg" />
     <Content Include="Scripts\angular.js" />
@@ -253,6 +257,8 @@
     <Content Include="Scripts\footable\fonts\footable.eot" />
     <Content Include="Scripts\footable\fonts\footable.ttf" />
     <Content Include="Scripts\footable\fonts\footable.woff" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\charts\easypiechart\jquery.easy-pie-chart.js" />
     <Content Include="Scripts\charts\flot\jquery.flot.min.js" />
@@ -307,6 +313,8 @@
     <Content Include="Scripts\sortable\jquery.sortable.js" />
     <Content Include="Scripts\spinner\jquery.bootstrap-touchspin.css" />
     <Content Include="Scripts\spinner\jquery.bootstrap-touchspin.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\ui-jp.config.js" />
     <Content Include="Scripts\ui-jp.js" />
     <Content Include="Scripts\ui-load.js" />

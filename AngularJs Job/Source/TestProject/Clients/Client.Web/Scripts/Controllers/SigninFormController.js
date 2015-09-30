@@ -8,6 +8,7 @@
     $scope.authError = false;
 
     $scope.login = function () {
+        $('#loader').show();
         var result = LoginFactory($scope.user.email, $scope.user.password, $scope.user.rememberMe);
         result.then(function (result) {
             if (!result.success) {
@@ -16,6 +17,7 @@
             else {
                 window.location.href = '/';
             }
+            $('#loader').hide();
         });
     }
 }

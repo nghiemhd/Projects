@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="~/content/simple-line-icons.css" type="text/css" />
     <link rel="stylesheet" href="~/content/font.css" type="text/css" />
     <link rel="stylesheet" href="~/content/app.css" type="text/css" />
-    
+    <link rel="stylesheet" href="~/Content/toastr.css" type="text/css" />
 </head>
 <body>
     <div class="app app-header-fixed  ">
@@ -634,7 +634,9 @@
                         <table class="table table-striped bg-white b-a">
                             <thead>
                                 <tr>
+                                    <th style="width: 50px"></th>
                                     <th style="width: 60px">QTY</th>
+                                    <th>DESCRIPTION</th>
                                     <th>DESCRIPTION</th>
                                     <th style="width: 140px">UNIT PRICE</th>
                                     <th style="width: 90px" class="text-right">TOTAL</th>
@@ -654,29 +656,43 @@
                                     <td>$858.00</td>
                                 </tr>*@
                                 <tr ng-repeat="detail in invoice.InvoiceDetails">
-                                    <td><input style="width:50px;text-align:center" ng-model="detail.Quantity" /></td>
-                                    <td>{{detail.Description}}</td>
-                                    <td><input ng-model="detail.Price" /></td>
+                                    <td>
+                                        <div class="checkbox m-b-md m-t-none">
+                                            <label class="i-checks">
+                                                <input type="checkbox"><i></i>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><input style="width:50px;text-align:center" ng-model="detail.Quantity"></td>
+                                    <td contenteditable="true" ng-model="detail.Description">{{detail.Description}}</td>
+                                    <td><input ng-model="detail.Description" />                                        
+                                    </td>
+                                    <td><input ng-model="detail.Price"></td>
                                     <td class="text-right">${{detail.Price * detail.Quantity | number:2}}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3" class="text-right"><strong>Subtotal</strong></td>
+                                    <td colspan="4" class="text-right"><strong>Subtotal</strong></td>
                                     <td class="text-right">${{subtotal() | number:2}}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3" class="text-right no-border"><strong>Shipping</strong></td>
+                                    <td colspan="4" class="text-right no-border"><strong>Shipping</strong></td>
                                     <td class="text-right">${{invoice.ShippingFee | number:2}}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3" class="text-right no-border"><strong>VAT Included in Total</strong></td>
+                                    <td colspan="4" class="text-right no-border"><strong>VAT Included in Total</strong></td>
                                     <td class="text-right">${{invoice.VAT | number:2}}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3" class="text-right no-border"><strong>Total</strong></td>
+                                    <td colspan="4" class="text-right no-border"><strong>Total</strong></td>
                                     <td class="text-right"><strong>${{grandTotal() | number:2}}</strong></td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div>
+                        <button id="btnSave" class="btn btn-sm btn-primary" ng-click="updateInvoice()">Save</button>
+                        <button id="btnAddItem" class="btn btn-sm btn-primary">Add item</button>
+                        <button id="btnDeleteItem" class="btn btn-sm btn-primary">Delete item</button>
                     </div>
                 </div>
 
@@ -694,7 +710,9 @@
         <!-- / footer -->
 
     </div>
-
+    <div id="loader" class="overlay" style="display:none">
+        <img class="loader" src="~/img/loading.gif" />
+    </div>
     <script src="~/scripts/jquery.min.js"></script>
     <script src="~/scripts/bootstrap.js"></script>
     <script src="~/scripts/ui-load.js"></script>
@@ -703,6 +721,7 @@
     <script src="~/scripts/ui-nav.js"></script>
     <script src="~/scripts/ui-toggle.js"></script>
     <script src="~/Scripts/date.format.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
     @Scripts.Render("~/bundles/AngularMVCApp")
 </body>
 </html>

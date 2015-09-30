@@ -1,5 +1,6 @@
 ﻿var InvoiceController = function ($scope, InvoiceFactory) {
     $scope.invoice = {};
+    $scope.deleteIds = [];
 
     $scope.load = function () {
         InvoiceFactory.getInvoice()
@@ -45,6 +46,28 @@
     function toDateFormat(date, format) {
         var dateValue = getDateTimeValue(date);
         return dateFormat(new Date(dateValue), format);
+    }
+
+    $scope.updateInvoice = function () {
+        $('#loader').show();
+        var result = InvoiceFactory.updateInvoice($scope.invoice.InvoiceDetails, $scope.deleteIds);
+        result.then(function (result) { 
+            if(result.success) {
+                toastr.success('Update successfully');
+            }
+            else {
+                toastr.options = {
+                    closeButton: true,
+                    positionClass: "toast-top-full-width",
+                    timeOut: 0,
+                    extendedTimeOut: 0
+                };
+                toastr.error(result.error);
+                console.log(result.error);
+            }
+        });
+        
+        $('#loader').hide();
     }
 }
 

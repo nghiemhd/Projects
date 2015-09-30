@@ -22,3 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);/* For IE8 and earlier */
+}
+
+.loader {
+    left: 50%;
+    top: 50%;
+    position:absolute;
+}

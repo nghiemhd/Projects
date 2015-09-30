@@ -9,6 +9,7 @@
     $scope.errors = [];
 
     $scope.signup = function () {
+        $('#loader').show();
         var result = RegisterFactory($scope.user.email, $scope.user.password, $scope.user.confirmPassword);
         result.then(function (result) {
             if (result.success) {
@@ -18,6 +19,7 @@
                 $scope.authError = true;
                 $scope.errors = result.errors;
             }
+            $('#loader').hide();
         });
     }
 }
