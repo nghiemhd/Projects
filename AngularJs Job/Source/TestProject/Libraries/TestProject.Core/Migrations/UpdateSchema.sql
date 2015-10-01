@@ -42,3 +42,7 @@ CREATE TABLE [User] (
     CONSTRAINT [PK_User] PRIMARY KEY ([Id])
 )
 ALTER TABLE [InvoiceDetail] ADD CONSTRAINT [FK_InvoiceDetail_Invoice_InvoiceId] FOREIGN KEY ([InvoiceId]) REFERENCES [Invoice] ([Id])
+
+INSERT INTO [Invoice]([InvoiceNo] ,[InvoiceDate] ,[ShippingFee] ,[VAT])
+VALUES('000001' ,GETDATE() ,10 ,0)
+GO
