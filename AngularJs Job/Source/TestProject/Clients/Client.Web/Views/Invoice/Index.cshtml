@@ -631,12 +631,11 @@
                             Order ID: <strong>#9399034</strong>
                         </p>
                         <div class="line"></div>
-                        <table class="table table-striped bg-white b-a">
+                        <table id="invoiceDetails" class="table table-striped bg-white b-a">
                             <thead>
                                 <tr>
                                     <th style="width: 50px"></th>
                                     <th style="width: 60px">QTY</th>
-                                    <th>DESCRIPTION</th>
                                     <th>DESCRIPTION</th>
                                     <th style="width: 140px">UNIT PRICE</th>
                                     <th style="width: 90px" class="text-right">TOTAL</th>
@@ -659,14 +658,12 @@
                                     <td>
                                         <div class="checkbox m-b-md m-t-none">
                                             <label class="i-checks">
-                                                <input type="checkbox"><i></i>
+                                                <input type="checkbox" value="{{detail.Id}}"><i></i>
                                             </label>
                                         </div>
                                     </td>
                                     <td><input style="width:50px;text-align:center" ng-model="detail.Quantity"></td>
-                                    <td contenteditable="true" ng-model="detail.Description">{{detail.Description}}</td>
-                                    <td><input ng-model="detail.Description" />                                        
-                                    </td>
+                                    <td><input style="width:100%" ng-model="detail.Description"></td>
                                     <td><input ng-model="detail.Price"></td>
                                     <td class="text-right">${{detail.Price * detail.Quantity | number:2}}</td>
                                 </tr>
@@ -691,8 +688,8 @@
                     </div>
                     <div>
                         <button id="btnSave" class="btn btn-sm btn-primary" ng-click="updateInvoice()">Save</button>
-                        <button id="btnAddItem" class="btn btn-sm btn-primary">Add item</button>
-                        <button id="btnDeleteItem" class="btn btn-sm btn-primary">Delete item</button>
+                        <button id="btnAddItem" class="btn btn-sm btn-primary" ng-click="addItem()">Add item</button>
+                        <button id="btnDeleteItem" class="btn btn-sm btn-primary" ng-click="delete()">Delete item</button>
                     </div>
                 </div>
 

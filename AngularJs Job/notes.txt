@@ -1,0 +1,1 @@
+<string>Server=.\SQLExpress;AttachDbFilename=|DataDirectory|\PricingMigration.mdf;Trusted_Connection=Yes;</string>
